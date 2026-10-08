@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: signal-clone-api
+    runtime: python
+    plan: starter
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    disk:
+      name: signal-clone-uploads
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: signal-clone-postgres
+          property: connectionString
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: FRONTEND_ORIGINS
+        sync: false
+      - key: FRONTEND_ORIGIN_REGEX
+        value: ""
+
+databases:
+  - name: signal-clone-postgres
+    databaseName: signal_clone
+    user: signal_clone
+    plan: basic-256mb
+    region: oregon
