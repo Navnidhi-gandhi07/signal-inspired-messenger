@@ -1,5 +1,26 @@
 # Signal-inspired Messenger — Scaler SDE Fullstack Assignment
 
+
+## Live Demo
+
+**Application:** https://signal-inspired-messenger-pi.vercel.app
+
+**GitHub Repository:** https://github.com/Navnidhi-gandhi07/signal-inspired-messenger
+
+**Backend API:** https://signal-inspired-messenger-u8t4.onrender.com
+
+**Backend Health Check:** https://signal-inspired-messenger-u8t4.onrender.com/health
+
+### Deployment
+
+- **Frontend:** Next.js deployed on Vercel
+- **Backend:** FastAPI deployed on Render
+- **Real-time communication:** WebSockets
+- **Database:** SQLAlchemy with SQLite support and PostgreSQL configuration
+- **Deployment status:** Frontend and backend deployed; basic application functionality verified
+
+**Note:** The current Render Free deployment does not provide persistent local disk storage. Database records and uploaded files stored on the instance's local filesystem may be lost following redeployment or restart.
+
 A **Signal Desktop-inspired** messaging demo with **light mode by default**, optional dark mode, responsive layout, real-time messaging, and local SQLite persistence (managed PostgreSQL is configured for production). This is an independent educational clone, **not affiliated with Signal**. Encryption is **not implemented**; do not use it for sensitive conversations.
 
 ## Project roots and stack
